@@ -8,6 +8,7 @@ const formRoutes = require("./routers/form");
 const createtableRoutes = require("./routers/createtable");
 const auditHistoryRoutes = require("./routers/auditHistory");
 const deletetableRoutes = require("./routers/deletetable");
+const showDataRoutes = require('./routers/showData');
 
 
 //middlewares
@@ -29,7 +30,7 @@ db.connect(function(err) {
 });
 //user table creation
 db.query(`CREATE TABLE IF NOT EXISTS users (name VARCHAR(30) NOT NULL, email VARCHAR(30) PRIMARY KEY, password VARCHAR(225) NOT NULL);`, function (err, result) {
-    if (err)  throw err;
+    if (err) throw err;
     console.log("user Table created");
 });
 
@@ -55,6 +56,7 @@ app.use("/", formRoutes);
 app.use("/", createtableRoutes);
 app.use("/", auditHistoryRoutes);
 app.use("/", deletetableRoutes);
+app.use("/",showDataRoutes);
 
 //port
 const port = process.env.PORT || 4000;
