@@ -23,7 +23,7 @@
     <% } %>
 
 
-    <form action="/insert" method="post" class="form-for-create container p-5" style="margin-bottom: 40vh;">
+    <form action="/insertdata" method="post" class="form-for-create container p-5" style="margin-bottom: 40vh;">
       <h3>Insert Data</h3>
       <hr>
         
@@ -104,8 +104,8 @@
                         <td>
                           <select class="form-select" aria-label="Default select example"  name="<%= data[i].column_name %>" required>
                             <option value="" disabled="disabled" selected="true">-- Select --</option>
-                            <option value="true">True</option>
-                            <option value="false">False</option>
+                            <option value="1">True</option>
+                            <option value="0">False</option>
                           </select>
                           *Primary Key
                         </td>
@@ -113,8 +113,8 @@
                         <td>
                           <select class="form-select" aria-label="Default select example"  name="<%= data[i].column_name %>" >
                             <option value="" disabled="disabled" selected="true">-- Select --</option>
-                            <option value="true">True</option>
-                            <option value="false">False</option>
+                            <option value="1">True</option>
+                            <option value="0">False</option>
                           </select>
                         </td>
                       <% } %>

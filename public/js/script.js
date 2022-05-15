@@ -77,12 +77,13 @@ $(document).ready(function(){
  /*------------------edittable-------------------*/
  
  $("#insert-btn").click(function(){
-    $("#edit-form").attr('action', '/insert');
+    $("#edit-form").attr('action', '/insertdata');
  })
 
  $("#delete-btn").click(function(){
-   $("#edit-form").attr('action', '/delete');
+   $("#edit-form").attr('action', '/deletedata');
 })
+
 
  $(document).ready(function(){
     $("#filter").on("change",function(){
@@ -97,3 +98,8 @@ $(document).ready(function(){
 
     })
  })
+
+/*---------------insert data------------------*/
+$('#for-date-col').dateptimepicker({
+   format: 'YYYY/MM/DD HH:mm:ss'
+})

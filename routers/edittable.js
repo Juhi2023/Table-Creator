@@ -8,7 +8,7 @@ router.get("/edit", async(req, res)=>{
 })
 
 
-router.get("/insert", async(req, res)=>{
+router.get("/insertdata", async(req, res)=>{
     db.query(`SELECT tableName FROM tableInfo WHERE email = "${req.session.user.email}";`, function (err, result) {
         if (err) 
             console.log(err)
@@ -17,7 +17,7 @@ router.get("/insert", async(req, res)=>{
     });	    
 })
 
-router.post("/insert", async(req, res)=>{
+router.post("/insertdata", async(req, res)=>{
     console.log(req.body)
 
     db.query(`SELECT column_name, data_type FROM information_schema.columns WHERE TABLE_SCHEMA = "tablecreator" AND TABLE_NAME = "${req.body.table}";`, function (err, result) {
@@ -36,6 +36,10 @@ router.post("/insert", async(req, res)=>{
                             col+=key +",";
                             if(req.body[key]=='')
                                 val+= `NULL,`;
+                            else if(isNaN(req.body[key])){
+                                empty="NO"
+                                val += `'${req.body[key]}' ,`
+                            }
                             else{
                                 empty="NO"
                                 val+= req.body[key] + " ,";
